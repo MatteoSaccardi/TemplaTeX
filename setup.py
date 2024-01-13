@@ -25,13 +25,11 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    install_requires=['requests'],
+    install_requires=[],
     entry_points={
         'console_scripts': [
             'templatex = templatex.templatex:main',
         ],
     },
     keywords=["LaTeX", "templates", "scientific papers", "notes", "posters", "presentations"],
-    include_package_data=True,
-    package_data={'templatex': ['Templates/*']},  # Include the Templates folder
 )

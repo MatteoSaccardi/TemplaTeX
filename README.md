@@ -7,7 +7,7 @@ Copyright (C) 2024, Matteo Saccardi
 
 ## Installation
 
-The latest version of the package can be installed using `pip` directly from the github server
+The latest version of the package can be installed using `pip` directly from the github server.
 
 ```bash
 pip install -U git+https://github.com/MatteoSaccardi/templatex.git@main
@@ -21,6 +21,14 @@ with every `git pull`
 git clone git@github.com:MatteoSaccardi/templatex.git
 cd templatex
 pip install -e .
+```
+
+### Crucial step in the installation
+One final step: we need to move manually the folder Templates into the local installation from pip.
+You can download it from Github, or follow the terminal commands below, where we temporarily need 
+to git clone the repository, move the desired folder and then delete the rest.
+```bash
+git clone https://github.com/MatteoSaccardi/templatex && cd templatex && mv Templates $(pip show -f templatex | grep Location | cut -d ' ' -f 2)/templatex && cd .. && rm -rf templatex
 ```
 
 ## Usage
