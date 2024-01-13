@@ -58,7 +58,7 @@ def main():
     	print('Indicate which one you want to use (count from 0): ')
     	which_template = int(input())
     	templates = [ templates[which_template] ]
-    print(f'You chose the template for {file} of type {templates[0]}')
+    print(f'You chose the template for {file_} of type {templates[0]}')
     new_folder = None
     while new_folder is None:
     	print(f'Name the folder you want to create with the template')
@@ -66,8 +66,6 @@ def main():
     	if os.path.exists(new_folder):
     		print('Folder already exists, choose another name')
     		new_folder = None
-    #path_to_folder = here+'/Templates/'+file_+'/'+templates[0]
-    #copy_folder_contents(path_to_folder, new_folder)
     path_to_folder = 'Templates/'+file_+'/'+templates[0]
     download_and_extract_github_folder(path_to_folder,new_folder)
     print('Successful creation of your template!')
