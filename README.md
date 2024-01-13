@@ -1,4 +1,4 @@
-# templatex
+# TemplaTeX
 Template generator for TeX scientific papers with Python.
 
 ## Authors
