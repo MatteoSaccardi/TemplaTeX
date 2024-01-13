@@ -6,12 +6,6 @@ import shutil
 import requests
 from zipfile import ZipFile
 
-templates = { 'Paper'       : [ 'Default', 'JHEP', 'PoS', 'Cimento' ],
-	      'Notes'       : [ 'Default' ],
-	      'Poster'      : [ 'Default' ],
-	      'Presentation': [ 'Default' ],
-}
-
 def download_and_extract_github_folder(path_to_folder,new_folder):
     # Construct the URL to download the repository as a zip file
     repo_url = 'https://github.com/MatteoSaccardi/templatex'
@@ -36,6 +30,11 @@ def download_and_extract_github_folder(path_to_folder,new_folder):
  
 def main():
     print('Hi, welcome to TemplaTeX!')
+    templates = { 'Paper'       : [ 'Default', 'JHEP', 'PoS', 'Cimento' ],
+	          'Notes'       : [ 'Default' ],
+	          'Poster'      : [ 'Default' ],
+	          'Presentation': [ 'Default' ],
+	        }
     print('Do you want to obtain the template for a Paper [0], Notes, [1], Poster [2] or a Presentation [3]? ')
     template_type = int(input())
     if template_type == 0:
