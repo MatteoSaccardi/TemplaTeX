@@ -1,0 +1,58 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{pos}
+\pdfoutput=1
+\input{macros.tex}
+
+\title{Title}
+%% \ShortTitle{Short Title for header}
+
+\author*{Matteo~Saccardi}
+\author{Second Author}
+
+\affiliation{Dipartimento di Fisica, Universit\`a di Milano--Bicocca,\\
+and INFN, sezione di Milano--Bicocca,\\
+Piazza della Scienza 3, I-20126 Milano, Italy}
+
+\emailAdd{m.saccardi@campus.unimib.it}
+\emailAdd{second.author@unimib.it}
+
+\abstract
+{
+Here we add the abstract.
+}
+
+\FullConference{%
+  The 39th International Symposium on Lattice Field Theory (Lattice2022),\\
+  8-13 August, 2022 \\
+  Bonn, Germany 
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction and motivations\label{sec:intro}}
+\input intro.tex
+
+\section{Section 2\label{sec:2}}
+\input sec2.tex
+
+\section{Section 3\label{sec:3}}
+\input sec3.tex
+
+\section{Conclusions and outlook}
+\input concl.tex
+
+\section{Acknowledgements}
+M.S. thanks his guitar for many vibrating discussions over the years on the topic of this paper.
+
+\appendix
+
+\section{Appendix A\label{app:A}}
+\input appA.tex 
+
+\bibliographystyle{JHEP}
+\bibliography{mb.bib}
+
+\end{document}
+

@@ -1,0 +1,190 @@
+\documentclass[22pt,margin=0.5in,innermargin=-4.5in,blockverticalspace=-0.5in]{tikzposter}
+\geometry{paperwidth=33.11in,paperheight=46.81in} %A0
+% \geometry{paperheight=33.11in,paperwidth=23.4in} %A1
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+%\usepackage[estonian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{unitartu-theme}
+\makeatletter
+\setlength{\TP@visibletextwidth}{31.0in}
+\setlength{ \TP@visibletextheight}{45in}
+\makeatother
+\usepackage{mwe} % for placeholder images
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{wrapfig}
+
+% set theme parameters
+\tikzposterlatexaffectionproofoff
+\usetheme{UniTartuTheme}
+\usecolorstyle{UniTartuStyle}
+
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\renewcommand{\vec}[1]{\bm{#1}}
+\newcommand{\Tr}{\text{Tr}}
+\usepackage[T1]{fontenc}
+
+
+\title{\parbox{0.8\linewidth}{Title}}
+\author{\textbf{Matteo Saccardi, Author2, ...}}
+\institute{University of Milano-Bicocca, and INFN, Section of Milano-Bicocca}
+
+\titlegraphic{
+    % INSERT THE LOGOS OF THE CONFERENCE
+    \includegraphics[width=6cm]{Figures/DreamingDuck.png}
+    \hspace{1.5cm}
+    \includegraphics[width=7cm]{Figures/LOGO_UNIMIB.png}    
+    %\hspace{0.5cm}
+    \includegraphics[width=17cm]{Figures/LOGO_INFN.pdf}
+    %\includegraphics[width=8cm]{Figures/LOGO_UNIMIB.png}
+}
+
+% begin document
+\begin{document}
+\maketitle
+\centering
+\begin{columns}
+
+%----------------------------------------------------------------------------------------
+%	KEY IDEAS
+%----------------------------------------------------------------------------------------
+\column{0.5}
+\block{Key Ideas}{
+\begin{itemize}
+    \item Here you \textbf{summarize}
+    \item the \textbf{contents}
+    \item of your \textbf{research},
+    \item describe \textbf{motivations}
+    \item and \textbf{conclusions}
+\end{itemize}
+\vspace{0.5cm}
+}
+
+%----------------------------------------------------------------------------------------
+%	SOME EXAMPLES
+%----------------------------------------------------------------------------------------
+\column{0.5}
+\block{Some Examples}{
+\begin{itemize}
+    \item Example 1
+    \item Example 2
+    \item Example 3
+\end{itemize}
+\vspace{0.5cm}
+}
+\end{columns}
+
+\vspace{3cm}
+
+\begin{columns}
+
+%----------------------------------------------------------------------------------------
+%	Introduction
+%----------------------------------------------------------------------------------------
+\column{0.5}
+\block{Introduction}{
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\vspace{0.5cm}
+}
+
+%----------------------------------------------------------------------------------------
+%	Section 1
+%----------------------------------------------------------------------------------------
+\column{0.5}
+
+\block{Section 1}{
+
+\textit{Another Section}\\
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \\ 
+\begin{center}
+    \includegraphics{Figures/DreamingDuck.png}
+\end{center}
+ 
+}
+
+\end{columns}
+
+\begin{columns}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+\column{0.5}
+
+\block{Section 2}{
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\begin{center}
+    \includegraphics[scale=1.2]{Figures/StandingDuck.png}
+\end{center}
+}
+
+%----------------------------------------------------------------------------------------
+%	MATTEO SACCARDI
+%----------------------------------------------------------------------------------------
+\column{0.5}
+
+\block{Matteo Saccardi}{
+
+Main results
+
+\vspace{1cm}
+{
+
+\begin{minipage}[c]{15cm}
+\quad
+\begin{center}
+    \includegraphics[scale=1.2]{Figures/StandingDuck.png}
+\end{center}
+\end{minipage}%
+\begin{minipage}[c]{\linewidth-15cm}
+   
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{minipage}%
+
+}
+\vspace{1cm}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+\begin{center}
+\includegraphics[scale=1.11]{Figures/DreamingDuck.png}
+\includegraphics[scale=1.08]{Figures/StandingDuck.png}\end{center}
+
+}
+
+\end{columns}
+
+\block{Acknowledgments / Bibliography / ...}{
+\vspace{-1cm}
+\begin{minipage}[c]{45cm}
+M.S. thanks his guitar for many vibrating discussions over the years on the topic of this paper.
+\end{minipage}
+\begin{minipage}[c]{\linewidth-42cm}
+\centering
+\includegraphics[width=4cm]{Figures/LOGO_UNIMIB.png}
+\hspace{1cm}
+\includegraphics[width=10cm]{Figures/LOGO_INFN.pdf}
+\end{minipage}
+}
+
+
+\node[above right,opacity=0.1,inner sep=0pt,outer sep=0pt] at (bottomleft) {\includegraphics[width=\paperwidth,height=\paperheight]{Figures/background.jpg}};
+\end{document}

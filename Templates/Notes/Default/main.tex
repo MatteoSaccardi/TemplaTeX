@@ -1,0 +1,87 @@
+% USE LuaLaTeX for Feynman diagrams!!
+
+\documentclass[11pt]{article}
+%\pdfoutput=1
+\usepackage{epsfig,sint,cite,amsfonts,amssymb,amsmath,bbold}
+\usepackage[font=small,labelfont={sf,bf}]{caption}
+\usepackage{subcaption}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{patterns} %per usare i retini
+\usepackage[english]{babel}
+\usepackage{simplewick}
+\usepackage{dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{slashed}
+\input{macros.tex}
+
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{svg.path}
+\usetikzlibrary{shapes,fit}
+
+\usepackage{hyperref} %to make references clickable
+
+%\usepackage[compat=1.1.0]{tikz-feynman}
+
+\newcommand{\id}{\mathbb{1}}
+\newcommand{\Pg}{\hat{{\rm P}}_{\rm G}}
+\newcommand{\Pmu}{\hat{\rm P}^{(\mu)}}
+\newcommand{\Pnu}{\hat{\rm P}^{(\nu)}}
+\newcommand{\R}{\hbox{\rm R}}
+\newcommand{\calR}{{\cal R}}
+\newcommand{\ranglec}{{\rangle_c}}
+\renewcommand{\i}{\mathrm{i}}
+
+\newcommand{\mb}[0]{\color{blue}}
+
+\author{Matteo~Saccardi$^{(1)}$, Someone~Else$^{(2)}$}
+\date{%
+    $(1)$ Dipartimento di Fisica, Universit\`a di Milano--Bicocca,\\
+and INFN, sezione di Milano--Bicocca,\\
+Piazza della Scienza 3, I-20126 Milano, Italy\\
+    $(2)$ Another Affiliation\\
+    \today
+}
+\title{\Large\bf Title\\[0.5ex]}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    These notes are a guideline for blah blah blah.\\[0.5ex]
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction\label{sec:intro}}
+\input intro.tex
+
+\section{The problem}\label{sec:1}
+\input sec1.tex
+
+\section{Numerical implementation}\label{sec:2}
+\input sec2.tex
+
+\section{Conclusions and Outlook}\label{sec:concl}
+\input concl.tex
+
+\section{Acknowledgments}
+Thanks for reading these notes.\\
+If you have any comment, please contact me at \textit{m.saccardi@campus.unimib.it} (Matteo Saccardi).
+
+\appendix
+
+\section{Appendix A: Analytical results\label{app:A}}
+\input appA.tex
+
+\bibliographystyle{JHEP}
+\bibliography{mb.bib}
+
+\end{document}
+

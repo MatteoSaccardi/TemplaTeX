@@ -1,0 +1,80 @@
+%\documentclass{cimento} %for NuovoCimento publication
+\documentclass[preprint]{cimento} %for arXiv
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTE THAT
+% - i.e., e.g. must be put in ITALICS
+% - the bibliography format is explained in bib.tex file
+% - all figures must be attached in .eps format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pdfoutput=1
+\usepackage{epsfig,sint,cite,amsfonts,amssymb,amsmath,bbold}
+\usepackage[font=small,labelfont={sf,bf}]{caption}
+\usepackage{subcaption}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{patterns} %per usare i retini
+\usepackage[english]{babel}
+\usepackage{simplewick}
+\usepackage{dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{wrapfig}
+\usepackage{slashed}
+\input{macros.tex}
+
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{svg.path}
+\usetikzlibrary{shapes,fit}
+
+\newcommand{\id}{\mathbb{1}}
+\newcommand{\Pg}{\hat{{\rm P}}_{\rm G}}
+\newcommand{\Pmu}{\hat{\rm P}^{(\mu)}}
+\newcommand{\Pnu}{\hat{\rm P}^{(\nu)}}
+\newcommand{\R}{\hbox{\rm R}}
+\newcommand{\calR}{{\cal R}}
+\newcommand{\ranglec}{{\rangle_c}}
+\renewcommand{\i}{\mathrm{i}}
+\def\tmin{t_\mathrm{min}}
+\def\tmax{t_\mathrm{max}}
+\def\syst{\sigma_\mathrm{syst}}
+\def\stat{\sigma_\mathrm{stat}}
+
+\title{Title}
+\author{M.~Saccardi\from{UNIMIB-INFN}\thanks{Speaker}, A.~Second\from{SECOND} \atque A.~Third\from{THIRD}}
+\instlist{\inst{UNIMIB-INFN} Dipartimento di Fisica, Universit\`a di Milano--Bicocca, and INFN, sezione di Milano--Bicocca \\ Piazza della Scienza 3, I-20126 Milano, Italy
+\inst{SECOND} Second Institution \inst{THIRD} Third Institution}
+
+\captionsetup{belowskip=0pt}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Here we add our abstract.
+\end{abstract}
+
+\section{Introduction and motivations\label{sec:intro}}
+\input intro.tex
+
+\section{The inverse problem\label{sec:1}}
+\input sec1.tex
+
+\section{Multi-level algorithm and spectral densities\label{sec:2}}
+\input sec2.tex
+
+\section{Conclusions and outlook\label{sec:concl}}
+\input concl.tex
+
+\section{Acknowledgements}
+M.S. thanks his guitar for many vibrating discussions over the years on the topic of this paper.
+
+\input bib.tex
+
+\end{document}
+

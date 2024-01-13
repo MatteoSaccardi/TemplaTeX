@@ -1,0 +1,105 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                               %
+%   This is sint.sty, to be used with  documentclass{article}   %
+%   of Latex2e. It is to be included with the command           %
+%                                                               %
+%          \usepackage{sint}                                    %
+%                                                               %
+%   It modifies the size of the section, subsection and         %
+%   appendix titles and of figure and table captions.           %
+%   It also allows for citation [1--5], using the syntax        %
+%   \cite{ref1-ref5} (copyright Z.Jakubowski, see below)        %
+%                                                               %
+%                                    S. Sint, 29/7/95           %              
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% page layout
+
+\textheight=21 true cm
+\textwidth=14.6 true cm
+%\textwidth=15.4 true cm
+\hoffset= -1.0 true cm
+\voffset= -1.0 true cm
+
+%\abovedisplayskip=15pt plus 3pt minus 3pt
+%\belowdisplayskip=15pt plus 3pt minus 3pt
+\parindent=2em
+
+\renewcommand{\baselinestretch}{1.05}
+
+
+% modify figure and table captions
+
+\renewcommand{\fnum@figure}{{\footnotesize\bf \figurename~\thefigure}}
+\renewcommand{\fnum@table}{{\footnotesize\bf\tablename~\thetable}}
+
+
+
+% modification of section, subsection etc.
+
+\renewcommand{\section}{\setcounter{equation}{0}
+                                  \@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\reset@font\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\reset@font\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\reset@font\normalsize\itshape}}
+%\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+%                                    {3.25ex \@plus1ex \@minus.2ex}%
+%                                    {-1em}%
+%                                    {\reset@font\normalsize\bfseries}}
+%\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\parindent}%
+%                                       {3.25ex \@plus1ex \@minus .2ex}%
+%                                       {-1em}%
+%                                      {\reset@font\normalsize\bfseries}}
+%
+
+
+
+% modify equation labelling
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+
+
+% modify citation command
+%
+% = Style option ZJCITE
+% By Zbigniew Jakubowski  c/o DESY-F31	 tel. (49)(40)8998-3141
+% Extension of LaTeX citation command to allow for citation ranges
+% as requested by the Z. Phys. C			  Z.J. 88
+% WARNING! can lead into troubles with BibTeX
+% input:    \cite{ref1,ref10-ref20,ref25}
+% output:   [1,10--20,25]   (if	ref1=1 and so on)
+
+%\def\cite%
+%{\@ifnextchar [{\@tempswatrue\@citexz}{\@tempswafalse\@citexz[]}}
+%\def\@citexz[#1]#2%
+%   {\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+%  \def\@citea{}\@cite{\@for\@citeb:=#2\do
+%    {\@citea\def\@citea{,\penalty100\relax}\@ifundefined
+%   {b@\@citeb}{\@atest\@citeb \if@zhyp \expandafter\@@zcite{\@citeb}
+%       \else {\bf ?}\@warning
+%       {Citation `\@citeb' on page \thepage \space undefined}\fi}%
+%\hbox{\csname b@\@citeb\endcsname}}}{#1}}
+%
+%\newif\if@zhyp
+%\def\@atest#1{\expandafter\@a #1-\@atest\@a}
+%\long\def\@a#1-#2#3\@a{\ifx\@atest#2\@zhypfalse\else\@zhyptrue\fi}
+%
+%\def\@@zcite#1{\expandafter\@zcite #1}
+%\def\@zcite#1-#2 {\@ifundefined{b@#1}
+%      {{\bf ?}\@warning
+%       {Citation `#1' on page \thepage \space undefined}}%
+%\hbox{\csname b@#1\endcsname}--%
+%\@ifundefined{b@#2}
+%      {{\bf ?}\@warning
+%       {Citation `#2' on page \thepage \space undefined}}%
+%\hbox{\csname b@#2\endcsname}}

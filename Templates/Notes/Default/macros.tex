@@ -1,0 +1,71 @@
+
+% Equations
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bes}{\begin{eqnarray}}
+\newcommand{\ees}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\Prj}{{\rm I}\!{\rm P}}
+% References
+\newcommand{\pref}[1]{(\ref{#1})}
+\newcommand{\eq}[1]{eq.~(\ref{#1})}
+\newcommand{\Eq}[1]{Eq.~(\ref{#1})}
+\newcommand{\eqs}[1]{eqs.~(\ref{#1})}
+\newcommand{\Eqs}[1]{Eqs.~(\ref{#1})}
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
+\newcommand{\Fig}[1]{Figure~\ref{#1}}
+\newcommand{\sect}[1]{Sect.~\ref{#1}}
+\newcommand{\Sect}[1]{Section~\ref{#1}}
+\newcommand{\app}[1]{App.~\ref{#1}}
+\newcommand{\App}[1]{Appendix~\ref{#1}}
+\newcommand{\tab}[1]{Table~\ref{#1}}
+\newcommand{\Tab}[1]{Table~\ref{#1}}
+\newcommand{\Tabs}[1]{Tables~\ref{#1}}
+%\newcommand{\Ref}[1]{Ref.~\cite{#1}}
+\newcommand{\Refs}[1]{Refs.~\cite{#1}}
+
+% Quantities
+\newcommand{\chitop}{\chi_\mathrm{top}}
+\newcommand{\tauint}{\tau_\mathrm{int}}
+\newcommand{\tauexp}{\tau_\mathrm{exp}}
+\newcommand{\taufit}{\tau_\mathrm{exp}^\mathrm{fit}}
+\newcommand{\SW}{S_\mathrm{W}}
+\newcommand{\Qst}{Q^2(t)}
+\newcommand{\Qt}{Q(t)}
+\newcommand{\Pacc}{P_\mathrm{acc}}
+\newcommand{\chiglob}{\chi^\mathrm{glob}}
+\newcommand{\chicorr}{\chi^\mathrm{corr}}
+\newcommand{\Nf}{N_\mathrm{f}}
+\newcommand{\nf}{N_\mathrm{f}}
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand{\rme}{\mathrm{e}}
+\newcommand{\rmO}{\mathrm{O}}
+\newcommand{\csw}{c_\mathrm{SW}}
+\newcommand{\kud}{\kappa_\mathrm{ud}}
+\newcommand{\mud}{m_\mathrm{ud}}
+\newcommand{\ms}{m_\mathrm{s}}
+\newcommand{\Qtop}{Q_\mathrm{top}}
+\newcommand{\ks}{\kappa_\mathrm{s}}
+\newcommand{\fpi}{f_\pi}
+\newcommand{\fk}{f_\mathrm{K}}
+\newcommand{\fpik}{f_{\pi\mathrm{K}}}
+\newcommand{\mk}{m_\mathrm{K}}
+\newcommand{\mpi}{m_\pi}
+
+% Units
+\newcommand{\fm}{\mathrm{fm}}
+\newcommand{\mev}{\mathrm{MeV}}
+\newcommand{\mq}[1]{m_\mathrm{#1}}
+
+% Dirac matrices
+
+\def\dirac#1{\gamma_{#1}}
+\def\diracstar#1#2{
+    \setbox0=\hbox{$\gamma$}\setbox1=\hbox{$\gamma_{#1}$}
+    \gamma_{#1}\kern-\wd1\kern\wd0
+    \smash{\raise4.5pt\hbox{$\scriptstyle#2$}}}
+\def\dirachat{\hat{\gamma}_5}

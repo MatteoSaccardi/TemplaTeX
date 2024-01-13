@@ -1,0 +1,105 @@
+\documentclass[11pt]{article}
+\pdfoutput=1
+\usepackage{epsfig,sint,cite,amsfonts,amssymb,amsmath,bbold}
+\usepackage[font=small,labelfont={sf,bf}]{caption}
+\usepackage{subcaption}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{patterns} %per usare i retini
+\usepackage[english]{babel}
+\usepackage{simplewick}
+\usepackage{dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{slashed}
+\input{macros.tex}
+
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{svg.path}
+\usetikzlibrary{shapes,fit}
+
+\newcommand{\id}{\mathbb{1}}
+\newcommand{\Pg}{\hat{{\rm P}}_{\rm G}}
+\newcommand{\Pmu}{\hat{\rm P}^{(\mu)}}
+\newcommand{\Pnu}{\hat{\rm P}^{(\nu)}}
+\newcommand{\R}{\hbox{\rm R}}
+\newcommand{\calR}{{\cal R}}
+\newcommand{\ranglec}{{\rangle_c}}
+\renewcommand{\i}{\mathrm{i}}
+
+\begin{document}
+
+\begin{titlepage}
+%\begin{flushright}
+%\hfill PREPRINT NUMBER \\
+%\end{flushright}
+
+\vskip 0.5cm
+
+\begin{center}
+
+ {\Large\bf 
+Title of the paper \\[0.5ex]} 
+
+\end{center}
+\vskip 0.75 cm
+\begin{center}
+{\large Matteo~Saccardi, Second~Author}
+\vskip 0.25cm
+Dipartimento di Fisica, Universit\`a di Milano--Bicocca,\\
+and INFN, sezione di Milano--Bicocca,\\
+Piazza della Scienza 3, I-20126 Milano, Italy\\
+\vskip 1.0cm
+
+%{\large  Third~Author}
+%\vskip 0.25cm
+%New Affiliation\\
+%\vskip 1.0cm
+
+\vskip 0.75cm
+
+{\bf Abstract}
+\vskip 0.35ex
+\end{center}
+
+\noindent
+
+
+The abstract goes here.
+\vfill
+\eject
+
+\end{titlepage}
+
+\section{Introduction and motivations\label{sec:intro}}
+\input intro.tex
+
+\section{The problem\label{sec:1}}
+\input sec1.tex
+
+\section{Our solution\label{sec:2}}
+\input sec2.tex
+
+\section{More details\label{sec:3}}
+\input sec3.tex
+
+\section{Conclusions and outlook}
+\input concl.tex
+
+\section{Acknowledgments}
+M.S. thanks his guitar for many vibrating discussions over the years on the topic of this paper.
+
+\appendix
+
+\section{Boh se serve\label{app:A}}
+\input appA.tex 
+
+\bibliographystyle{JHEP}
+\bibliography{mb.bib}
+
+\end{document}
+

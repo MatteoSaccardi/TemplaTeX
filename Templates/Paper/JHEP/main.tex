@@ -1,0 +1,63 @@
+\documentclass[a4paper,10pt,fleqn]{article}
+\pdfoutput=1
+
+\usepackage{jheppub}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+
+%
+%
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{slashed}
+
+\notoc
+\title{Title}
+
+\author[a]{M.~Saccardi}
+\author[a]{A.~Second}
+\author[b]{A.~Third}
+\affiliation[a]{Universit\`a di Milano-Bicocca, and INFN, Sezione di Milano-Bicocca}
+\affiliation[b]{Second affiliation}
+
+\date{when}
+
+\def\O{\mathcal O}
+
+\newcommand{\ms}[0]{\color{blue}}
+
+
+\begin{document}
+
+\maketitle
+\flushbottom
+
+\clearpage
+
+\section{Introduction}
+\input{intro.tex}
+
+\section{Section 1}
+\input{sec1.tex}
+
+\section{Section 2}
+\input{sec2.tex}
+
+\section{Conclusions}
+\input{concl.tex}
+
+\section{Acknowledgements}
+M.S. thanks his guitar for many vibrating discussions over the years on the topic of this paper.
+
+\bibliographystyle{JHEP.bst}
+\bibliography{biblio}
+
+\appendix
+\section{Appendix A}
+\section{Appendix B}
+
+\end{document}
