@@ -6,30 +6,18 @@ import shutil
 import requests
 from zipfile import ZipFile
 
-def get_all_directory_names(directory):
-    directory_names = [d for d in os.listdir(directory) if os.path.isdir(os.path.join(directory, d))]
-    return directory_names
-
-def copy_folder_contents(source_folder, destination_folder):
-    # Ensure destination folder exists
-    os.makedirs(destination_folder, exist_ok=True)
-    # Copy contents of source folder to destination folder
-    for item in os.listdir(source_folder):
-        source_item = os.path.join(source_folder, item)
-        destination_item = os.path.join(destination_folder, item)
-        if os.path.isdir(source_item):
-            shutil.copytree(source_item, destination_item, symlinks=True)
-        else:
-            shutil.copy2(source_item, destination_item)
+templates = { 'Paper'       : [ 'Default', 'JHEP', 'PoS', 'Cimento' ],
+	      'Notes'       : [ 'Default' ],
+	      'Poster'      : [ 'Default' ],
+	      'Presentation': [ 'Default' ],
+}
 
 def download_and_extract_github_folder(path_to_folder,new_folder):
     # Construct the URL to download the repository as a zip file
     repo_url = 'https://github.com/MatteoSaccardi/templatex'
     folder_url = repo_url + '/' + path_to_folder
-
     # Make a request to get the zip file
     response = requests.get(folder_url, stream=True)
-
     # Ensure the request was successful (status code 200)
     if response.status_code == 200:
         # Create a temporary file to save the zip content
@@ -37,17 +25,14 @@ def download_and_extract_github_folder(path_to_folder,new_folder):
         with open(zip_filename, 'wb') as zip_file:
             for chunk in response.iter_content(chunk_size=128):
                 zip_file.write(chunk)
-
         # Extract the contents of the zip file
         with ZipFile(zip_filename, 'r') as zip_ref:
             zip_ref.extractall(new_folder)
-
         # Remove the temporary zip file
         os.remove(zip_filename)
         print(f'Downloaded and extracted {folder_url}')
     else:
         print(f"Failed to download {folder_url}. Status code: {response.status_code}")
-
  
 def main():
     print('Hi, welcome to TemplaTeX!')
@@ -67,11 +52,7 @@ def main():
     	print('Matteo Saccardi')
     	print('')
     	return
-    # Get the path of the currently executing script or module
-    current_script_path = os.path.abspath(__file__)
-    # Get the directory containing the currently executing script or module
-    here = os.path.dirname(current_script_path)
-    templates = get_all_directory_names(here+'/Templates/'+file_)
+    templates = templates[file_]
     if len(templates) > 1:
     	print('These are the following available templates:')
     	print(templates)
