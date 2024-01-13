@@ -3,6 +3,8 @@
 import sys
 import os
 import shutil
+import requests
+from zipfile import ZipFile
 
 def get_all_directory_names(directory):
     directory_names = [d for d in os.listdir(directory) if os.path.isdir(os.path.join(directory, d))]
@@ -19,19 +21,46 @@ def copy_folder_contents(source_folder, destination_folder):
             shutil.copytree(source_item, destination_item, symlinks=True)
         else:
             shutil.copy2(source_item, destination_item)
+
+def download_and_extract_github_folder(path_to_folder,new_folder):
+    # Construct the URL to download the repository as a zip file
+    repo_url = 'https://github.com/MatteoSaccardi/templatex'
+    folder_url = repo_url + '/' + path_to_folder
+
+    # Make a request to get the zip file
+    response = requests.get(folder_url, stream=True)
+
+    # Ensure the request was successful (status code 200)
+    if response.status_code == 200:
+        # Create a temporary file to save the zip content
+        zip_filename = 'temp.zip'
+        with open(zip_filename, 'wb') as zip_file:
+            for chunk in response.iter_content(chunk_size=128):
+                zip_file.write(chunk)
+
+        # Extract the contents of the zip file
+        with ZipFile(zip_filename, 'r') as zip_ref:
+            zip_ref.extractall(new_folder)
+
+        # Remove the temporary zip file
+        os.remove(zip_filename)
+        print(f'Downloaded and extracted {folder_url}')
+    else:
+        print(f"Failed to download {folder_url}. Status code: {response.status_code}")
+
  
 def main():
     print('Hi, welcome to TemplaTeX!')
     print('Do you want to obtain the template for a Paper [0], Notes, [1], Poster [2] or a Presentation [3]? ')
     template_type = int(input())
     if template_type == 0:
-        file = 'Paper'
+        file_ = 'Paper'
     elif template_type == 1:
-    	file = 'Notes'
+    	file_ = 'Notes'
     elif template_type == 2:
-    	file = 'Poster'
+    	file_ = 'Poster'
     elif template_type == 3:
-    	file = 'Presentation'
+    	file_ = 'Presentation'
     else:
     	print('Not a valid number, exit from TemplaTeX.')
     	print('Thanks for using TemplaTeX!')
@@ -42,7 +71,7 @@ def main():
     current_script_path = os.path.abspath(__file__)
     # Get the directory containing the currently executing script or module
     here = os.path.dirname(current_script_path)
-    templates = get_all_directory_names(here+'/Templates/'+file)
+    templates = get_all_directory_names(here+'/Templates/'+file_)
     if len(templates) > 1:
     	print('These are the following available templates:')
     	print(templates)
@@ -57,7 +86,10 @@ def main():
     	if os.path.exists(new_folder):
     		print('Folder already exists, choose another name')
     		new_folder = None
-    copy_folder_contents(here+'/Templates/'+file+'/'+templates[0], new_folder)
+    #path_to_folder = here+'/Templates/'+file_+'/'+templates[0]
+    #copy_folder_contents(path_to_folder, new_folder)
+    path_to_folder = 'Templates/'+file_+'/'+templates[0]
+    download_and_extract_github_folder(path_to_folder,new_folder)
     print('Successful creation of your template!')
     print('Thanks for using TemplaTeX!')
     print('Matteo Saccardi')

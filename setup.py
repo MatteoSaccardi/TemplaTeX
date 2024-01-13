@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 VERSION = (1, 0, 0)
 
@@ -18,20 +18,20 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/MatteoSaccardi/templatex",
-    packages=['templatex'],
+    packages=['templatex'], #find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU GPLv2",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    install_requires=[],
+    install_requires=['requests'],
     entry_points={
         'console_scripts': [
             'templatex = templatex.templatex:main',
         ],
     },
-    include_package_data=True,  # Include non-Python files specified in MANIFEST.in
-    package_data={'templatex': ['Templates/*']},  # Include the Templates folder
     keywords=["LaTeX", "templates", "scientific papers", "notes", "posters", "presentations"],
+    include_package_data=True,
+    package_data={'templatex': ['Templates/*']},  # Include the Templates folder
 )
