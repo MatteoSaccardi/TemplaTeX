@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: templatex
+Version: 1.0.0
+Summary: TeX template generator for scientific papers, notes, posters and presentations, written in Python
+Home-page: https://github.com/MatteoSaccardi/templatex
+Author: Matteo Saccardi
+Author-email: m.saccardi@campus.unimib.it
+License: UNKNOWN
+Keywords: LaTeX,templates,scientific papers,notes,posters,presentations
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU GPLv2
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # TemplaTeX
 TeX template generator for scientific papers, notes, posters and presentations, written in Python.
 
@@ -27,3 +44,5 @@ pip install -e .
 After installing, you only need to type templatex in your terminal to activate the correct script
 to generate the template. Then, just follow the instructions that appear in your terminal.
 Enjoy!
+
+

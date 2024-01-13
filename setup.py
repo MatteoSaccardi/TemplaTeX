@@ -1,6 +1,6 @@
 from setuptools import setup
 
-VERSION = (0, 1, 0)
+VERSION = (1, 0, 0)
 
 def version():
     v = ".".join(str(v) for v in VERSION)
@@ -14,7 +14,7 @@ setup(
     version=version(),
     author="Matteo Saccardi",
     author_email="m.saccardi@campus.unimib.it",
-    description="Template generator for TeX scientific papers with Python",
+    description="TeX template generator for scientific papers, notes, posters and presentations, written in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/MatteoSaccardi/templatex",
@@ -31,4 +31,7 @@ setup(
             'templatex = templatex.templatex:main',
         ],
     },
+    include_package_data=True,  # Include non-Python files specified in MANIFEST.in
+    package_data={'templatex': ['Templates/*']},  # Include the Templates folder
+    keywords=["LaTeX", "templates", "scientific papers", "notes", "posters", "presentations"],
 )

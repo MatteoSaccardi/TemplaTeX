@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+templatex/__init__.py
+templatex/templatex.py
+templatex.egg-info/PKG-INFO
+templatex.egg-info/SOURCES.txt
+templatex.egg-info/dependency_links.txt
+templatex.egg-info/entry_points.txt
+templatex.egg-info/top_level.txt
