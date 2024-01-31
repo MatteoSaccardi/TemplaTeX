@@ -21,6 +21,12 @@ repository, move the desired folder and delete the rest.
 ```bash
 git clone https://github.com/MatteoSaccardi/templatex && cd templatex && mv Templates $(pip show -f templatex | grep Location | cut -d ' ' -f 2)/templatex && cd .. && rm -rf templatex
 ```
+Note that on MacOS you might need to add an alias for the
+templatex command, depending on the terminal shell, e.g.
+adding to .bash_profile, .bashrc or .zshrc the following:
+```text
+alias templatex='python3 /opt/homebrew/bin/templatex'
+```
 
 ### Alternative Installation
 
