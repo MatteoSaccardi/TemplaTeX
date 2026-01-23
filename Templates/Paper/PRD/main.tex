@@ -1,0 +1,138 @@
+% \documentclass[prd,12pt,tightenlines,aps,letterpaper,amsmath,amssymb,preprintnumbers,showpacs,superscriptaddress,floatfix,longbibliography,nofootinbib]{revtex4-2}
+\documentclass[prd,twocolumn,aps,letterpaper,amsmath,amssymb,preprintnumbers,showpacs,superscriptaddress,floatfix,longbibliography,nofootinbib]{revtex4-2}
+%\usepackage{xspace}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage[caption=false]{subfig}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{calc}
+%\usepackage{verbatim}
+\maxdeadcycles=200
+%\usepackage[dvipsnames]{xcolor} \pdfoutput=1
+\allowdisplaybreaks % let equations split over multiple pages
+\usepackage[hypertexnames=true]{hyperref}
+\usepackage[capitalize]{cleveref}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links
+    citecolor=blue,        % color of links to bibliography
+    filecolor=blue,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+\usepackage{slashed}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{pgf}
+\usepackage{fancyvrb}
+\usepackage{longtable}
+\usepackage{bm}
+\usepackage{tikz-cd} 
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{centernot}
+\usepackage{xcolor}
+
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\basis}[0]{B} % Can be changed if we want
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\DeclareMathOperator{\ellipticsd}{sd} % elliptic function
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\coim}{coim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\vectorization}{vec}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\mathdim}{dim}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\argmin}{argmin}
+\DeclareMathOperator{\erf}{erf}
+\newcommand{\Z}[0]{\ensuremath{\mathbb{Z}}}
+\newcommand{\R}[0]{\ensuremath{\mathbb{R}}}
+\newcommand{\C}[0]{\ensuremath{\mathbb{C}}}
+\newcommand{\N}[0]{\ensuremath{\mathbb{N}}}
+\newcommand{\Sym}[0]{\ensuremath{\mathbb{S}}}
+\newcommand{\disk}[0]{\ensuremath{\mathbb{D}}}
+\newcommand{\uhp}[0]{\ensuremath{\mathbb{H}}}
+\newcommand{\pickspace}[0]{\ensuremath{\mathbb{P}}}
+
+\newcommand{\impose}[0]{\stackrel{!}{=}}
+\newcommand{\wvnum}[0]{\bm{n}} % wavenumber
+
+\newcommand{\bra}[1]{\ensuremath{\langle #1 |}}   % Bra vector
+\newcommand{\ket}[1]{\ensuremath{| #1 \rangle}}   % Ket vector
+\newcommand{\braket}[2]{\ensuremath{\langle #1 | #2 \rangle }}
+\newcommand{\avg}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\amp}[3]{\ensuremath{\left\langle #1 \,\left|\, #2 \,\right|\, #3 \right\rangle}}  % QM amplitude
+\newcommand{\abs}[1]{\ensuremath{| #1|}}
+\newcommand{\order}[1]{\ensuremath{\mathcal{O}\left( #1 \right)}}
+\newcommand{\truncavg}[1]{\ensuremath{[\![ #1 ]\!]}}
+\newcommand{\wnoisy}{\tilde{\bm{w}}}
+
+\newcommand{\eq}[1]{Eq.~\eqref{#1}}
+\newcommand{\Eq}[1]{Eq.~\eqref{#1}}
+\newcommand{\eqs}[1]{Eqs.~\labelcref{#1}}
+\newcommand{\Eqs}[1]{Eqs.~\labelcref{#1}}
+
+\newcommand{\tmax}{\ensuremath{t_{\text{max}}}}
+
+\newcommand{\ms}[1]{{\color{blue}#1}}
+\newcommand{\mscomment}[1]{{\color{blue}[\emph{#1}]}}
+\newcommand{\cut}[1]{{\color{white}#1}}    % white-out edits
+\newcommand{\str}[1]{}    % old text, slated for deletion
+\newcommand{\edit}[1]{{\color{gray}#1}}    % gray-out edits
+
+\newcommand{\todo}[1]{{\color{red}#1}}    % gray-out edits
+
+
+\begin{document}
+
+\title{
+    This is the title.\todo{TODO}
+}
+\begin{abstract}
+This is the abstract.\todo{TODO}
+\end{abstract}
+
+\author{Matteo Saccardi}
+\email{matteo.saccardi@colostate.edu}
+\affiliation{Department of Physics, Colorado State University, Fort Collins, CO 80523, USA}
+
+\date{\today}
+
+\maketitle
+
+\section{Introduction}
+\noindent
+This is the introduction.\todo{TODO}
+
+\section{Conclusions}
+\noindent
+This is the conclusions.\todo{TODO}
+
+\section*{Acknowledgements}
+
+We gratefully acknowledge useful conversations with \dots\todo{TODO}
+
+\clearpage
+
+\appendix
+
+\section{Appendix A}\label{app:A}
+\noindent
+This is Appendix A.\todo{TODO}
+
+\clearpage
+\bibliography{main.bib}
+
+\end{document}
