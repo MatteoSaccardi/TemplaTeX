@@ -38,11 +38,14 @@ def main():
     	print('Matteo Saccardi')
     	print('')
     	return
+    here = os.path.dirname(os.path.abspath(__file__))
+    templates_root = os.path.join(here, "Templates", file)
+    templates = get_all_directory_names(templates_root)
     # Get the path of the currently executing script or module
-    current_script_path = os.path.abspath(__file__)
+    # current_script_path = os.path.abspath(__file__)
     # Get the directory containing the currently executing script or module
-    here = os.path.dirname(current_script_path)
-    templates = get_all_directory_names(here+'/Templates/'+file)
+    # here = os.path.dirname(current_script_path)
+    # templates = get_all_directory_names(here+'/Templates/'+file)
     if len(templates) > 1:
     	print('These are the following available templates:')
     	print(templates)
