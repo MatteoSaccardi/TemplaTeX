@@ -53,7 +53,7 @@ export PATH="$HOME/Library/Python/3.9/bin:$PATH"  # adjust Python version
 You can add this line to ~/.bashrc, ~/.zshrc, or ~/.bash_profile to make it permanent.
 
 ## Example
-```bash
+```console
 $ templatex
 Hi, welcome to TemplaTeX!
 Do you want to obtain the template for a Paper [0], Notes, [1], Poster [2] or a Presentation [3]? 
