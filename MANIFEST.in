@@ -1,1 +1,1 @@
-recursive-include Templates *
+recursive-include templatex/Templates *

@@ -39,6 +39,7 @@ def main():
     	print('')
     	return
     here = os.path.dirname(os.path.abspath(__file__))
+    print(here)
     templates_root = os.path.join(here, "Templates", file)
     templates = get_all_directory_names(templates_root)
     # Get the path of the currently executing script or module
