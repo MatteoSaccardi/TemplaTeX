@@ -1,0 +1,498 @@
+% Shared Beamer template settings.
+% Load this from a Beamer document with \input{template.tex}.
+
+% Avoid errors for limited number of math alphabets.
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+\usetheme{default}
+\useinnertheme{circles}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shadows.blur}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{etoolbox}
+\usepackage{ifthen}
+\usepackage{xparse}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{mathastext}
+\usepackage{pifont}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+\usepackage[backend=bibtex,style=authoryear,maxcitenames=2,mincitenames=1,giveninits=true,uniquename=false]{biblatex}
+\addbibresource{biblio.bib}
+
+% ---------------------------------------------------------------------------
+% Colors and fonts
+
+\definecolor{myblue}{rgb}{0, .44, 1.}
+\definecolor{myviolet1}{rgb}{0., .22, 1.}
+\definecolor{myviolet2}{rgb}{.7, 0.5, 1.}
+\definecolor{myviolet}{rgb}{.55, .20, .90}
+\definecolor{mygreencite}{rgb}{0, .35, 0.}
+\definecolor{templategray}{RGB}{90,90,90}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{structure}{fg=myblue}
+\setbeamercolor{alerted text}{fg=myviolet}
+\setbeamercolor{title}{fg=myblue}
+\setbeamercolor{subtitle}{fg=myblue}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{frametitle}{fg=myblue,bg=white}
+\setbeamercolor{framesubtitle}{fg=templategray,bg=white}
+\setbeamercolor{footline}{fg=myblue,bg=white}
+\setbeamercolor{itemize item}{fg=myblue}
+\setbeamercolor{itemize subitem}{fg=myblue}
+\setbeamercolor{enumerate item}{fg=myblue}
+\setbeamercolor{caption name}{fg=myblue}
+
+\setbeamerfont{title}{family=\rmfamily,series=\bfseries,size=\Large}
+\setbeamerfont{subtitle}{family=\rmfamily,series=\bfseries,size=\large}
+\setbeamerfont{author}{series=\bfseries,size=\large}
+\setbeamerfont{frametitle}{family=\rmfamily,series=\bfseries,size=\large}
+\setbeamerfont{framesubtitle}{size=\small}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle continuation}{}
+\setbeamertemplate{itemize item}{$\star$}
+\setbeamertemplate{itemize subitem}{$\circ$}
+
+% Compatibility helpers from the previous presentation style.
+\providecommand{\cmark}{{\color{green}\ding{51}}}
+\providecommand{\xmark}{{\color{red}\ding{55}}}
+\providecommand{\ucmark}{{\color{red}$\triangle$}}
+\providecommand\QCD{{\color{blue}Q}{\color{red}C}{\color{mygreencite}D}}
+\providecommand{\re}[1]{\mathrm{Re}{#1}}
+\providecommand{\im}[1]{\mathrm{Im}{#1}}
+\providecommand{\Cov}{{\text{Cov}}}
+\providecommand\thr{\omega_{\mathrm{thr}}}
+\providecommand\stat{\sigma_{\mathrm{stat}}}
+\providecommand\tmax{t_{\mathrm{max}}}
+\providecommand\Ell{\mathscr{L}}
+\providecommand\H{\mathcal{H}}
+\providecommand\I{\mathcal{I}}
+\providecommand\A{\mathcal{A}}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=myblue,
+  citecolor=mygreencite,
+  urlcolor=myblue
+}
+
+% ---------------------------------------------------------------------------
+% User-facing settings
+
+\newcommand{\presentationfootername}{Matteo Saccardi}
+\newcommand{\presentationfootertitle}{Presentation}
+\newcommand{\presentationslidelogo}{}
+\newcommand{\presentationslidelogowidth}{0.68cm}
+\newcommand{\presentationslidelogoblockwidth}{1.05cm}
+\newcommand{\presentationslidelogoxshift}{1.18cm}
+\newcommand{\presentationslidelogoyshift}{0.24cm}
+\newcommand{\presentationtitleextra}{}
+\newcommand{\presentationtitlebackground}{}
+\newcommand{\presentationtitlelogoblock}{}
+\newcommand{\presentationtitlelogolist}{}
+\newcommand{\presentationtitlelogooptions}{height=1.20cm,keepaspectratio}
+\newcommand{\presentationtitlelogorowwidth}{0.86\paperwidth}
+\newcommand{\presentationtitlelogodistribution}{spread}
+
+\newif\ifpresentationslidelogo
+\presentationslidelogofalse
+\newif\ifpresentationtitlebackground
+\presentationtitlebackgroundfalse
+\newif\ifpresentationtitlelogos
+\presentationtitlelogosfalse
+
+\newcommand{\setfootername}[1]{\renewcommand{\presentationfootername}{#1}}
+\newcommand{\setfootertitle}[1]{\renewcommand{\presentationfootertitle}{#1}}
+\newcommand{\setslidelogo}[1]{%
+  \renewcommand{\presentationslidelogo}{#1}%
+  \presentationslidelogotrue%
+}
+\newcommand{\setslidelogowidth}[1]{\renewcommand{\presentationslidelogowidth}{#1}}
+\newcommand{\setslidelogoblockwidth}[1]{\renewcommand{\presentationslidelogoblockwidth}{#1}}
+\newcommand{\setslidelogoposition}[2]{%
+  \renewcommand{\presentationslidelogoxshift}{#1}%
+  \renewcommand{\presentationslidelogoyshift}{#2}%
+}
+\newcommand{\settitleextra}[1]{\renewcommand{\presentationtitleextra}{#1}}
+\newcommand{\settitlebackground}[1]{%
+  \renewcommand{\presentationtitlebackground}{#1}%
+  \presentationtitlebackgroundtrue%
+}
+\newcommand{\settitlelogooptions}[1]{\renewcommand{\presentationtitlelogooptions}{#1}}
+\newcommand{\settitlelogorowwidth}[1]{\renewcommand{\presentationtitlelogorowwidth}{#1}}
+\newcommand{\settitlelogodistribution}[1]{\renewcommand{\presentationtitlelogodistribution}{#1}}
+\newcounter{presentationtitlelogocount}
+\newcounter{presentationtitlelogoindex}
+\newcommand{\templatecounttitlelogo}[1]{\stepcounter{presentationtitlelogocount}}
+\newcommand{\templatetitlelogoseparator}{%
+  \ifdefstring{\presentationtitlelogodistribution}{spread}{\hfill}{\hspace{0.55cm}}%
+}
+\newcommand{\templaterendertitlelogo}[1]{%
+  \stepcounter{presentationtitlelogoindex}%
+  \expandafter\includegraphics\expandafter[\presentationtitlelogooptions]{#1}%
+  \ifnum\value{presentationtitlelogoindex}<\value{presentationtitlelogocount}%
+    \templatetitlelogoseparator%
+  \fi%
+}
+\newcommand{\templaterendertitlelogos}{%
+  \setcounter{presentationtitlelogoindex}{0}%
+  \renewcommand*{\do}[1]{\templaterendertitlelogo{##1}}%
+  \expandafter\docsvlist\expandafter{\presentationtitlelogolist}%
+}
+\newcommand{\templatetitlelogorow}{%
+  \setcounter{presentationtitlelogocount}{0}%
+  \renewcommand*{\do}[1]{\templatecounttitlelogo{##1}}%
+  \expandafter\docsvlist\expandafter{\presentationtitlelogolist}%
+  \ifdefstring{\presentationtitlelogodistribution}{left}{%
+    \makebox[\presentationtitlelogorowwidth][l]{\templaterendertitlelogos}%
+  }{%
+    \ifdefstring{\presentationtitlelogodistribution}{right}{%
+      \makebox[\presentationtitlelogorowwidth][r]{\templaterendertitlelogos}%
+    }{%
+      \makebox[\presentationtitlelogorowwidth][c]{\templaterendertitlelogos}%
+    }%
+  }%
+}
+\NewDocumentCommand{\settitlelogolist}{O{} m}{%
+  \IfNoValueF{#1}{%
+    \ifstrempty{#1}{}{\renewcommand{\presentationtitlelogooptions}{#1}}%
+  }%
+  \renewcommand{\presentationtitlelogolist}{#2}%
+  \renewcommand{\presentationtitlelogoblock}{\templatetitlelogorow}%
+  \presentationtitlelogostrue%
+}
+\newcommand{\settitlelogo}[1]{\settitlelogolist{#1}}
+\newcommand{\settitlelogos}[2]{%
+  \settitlelogolist{#1,#2}%
+}
+
+% Toggle with \sethandwriting{true} or \sethandwriting{false}.
+\newif\ifhandwriting
+\handwritingfalse
+\newcommand{\sethandwriting}[1]{%
+  \ifthenelse{\equal{#1}{true}}{\handwritingtrue}{\handwritingfalse}%
+}
+
+\MTfamily{augie}
+\Mathastext[augie]
+\newenvironment{Handwriting}{\MTversion{augie}}{\par}
+\newcommand{\maybehandwriting}[1]{%
+  \ifhandwriting
+    {\begin{Handwriting}#1\end{Handwriting}}%
+  \else
+    #1%
+  \fi
+}
+
+% ---------------------------------------------------------------------------
+% Title page
+
+\newcommand{\templatetitlesc}[1]{%
+  \begingroup
+  \scshape #1%
+  \endgroup
+}
+
+\defbeamertemplate*{title page}{matteo}[1][]{%
+  \vspace*{0.72cm}
+  \makebox[\textwidth][c]{%
+    \tikz{%
+      \node[
+        minimum width=0.96\paperwidth,
+        inner xsep=0.22cm,
+        inner ysep=0.24cm,
+        fill=white,
+        fill opacity=0.92,
+        text opacity=1,
+        draw=myblue!45!black,
+        line width=0.45pt,
+        blur shadow={shadow blur steps=6,shadow blur extra rounding=1.5pt,shadow opacity=20,shadow xshift=1.2pt,shadow yshift=-1.2pt}
+      ] {%
+        \begin{minipage}[c]{0.90\paperwidth}
+          \centering
+          {\color{myblue!65!black}\rule{0.94\linewidth}{0.4pt}\par}
+          \vspace{0.14cm}
+          {\usebeamerfont{title}\usebeamercolor[fg]{title}\templatetitlesc{\inserttitle}\par}
+          \vspace{0.08cm}
+          {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\templatetitlesc{\insertsubtitle}\par}
+          \vspace{0.14cm}
+          {\color{myblue!65!black}\rule{0.94\linewidth}{0.4pt}\par}
+        \end{minipage}%
+      };
+    }%
+  }%
+  \vfill
+  \begin{center}
+    {\usebeamerfont{author}\insertauthor\par}
+    \vspace{0.25cm}
+    {\small\insertdate\par}
+    \vspace{0.30cm}
+    {\small\color{myblue}\presentationtitleextra\par}
+  \end{center}
+  \ifpresentationtitlelogos
+    \vfill
+    \presentationtitlelogoblock
+    \vspace*{0.22cm}
+  \fi
+}
+
+\newcommand{\titlepageframe}{%
+  {%
+  \ifpresentationtitlebackground
+    \usebackgroundtemplate{%
+      \tikz\node[opacity=0.35,inner sep=0pt] at (0,0)
+        {\includegraphics[width=\paperwidth,height=\paperheight]{\presentationtitlebackground}};}%
+  \fi
+  \begin{frame}[plain,noframenumbering]
+    \titlepage
+  \end{frame}
+  }%
+}
+
+% ---------------------------------------------------------------------------
+% Header and footer
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.64cm,dp=0cm,leftskip=0.45cm,rightskip=1.55cm]{frametitle}
+    \vbox to 0.64cm{%
+      \vskip0.14cm%
+      {\usebeamerfont{frametitle}\scshape\insertframetitle\strut\par}%
+      \vskip-0.08cm%
+      \ifx\insertframesubtitle\@empty%
+        {\usebeamerfont{framesubtitle}\phantom{Subtitle}\strut\par}%
+      \else%
+        {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi%
+      \vskip-0.20cm%
+      {\color{myblue}\rule{\dimexpr\paperwidth-1.2cm\relax}{0.45pt}}%
+      \vfill%
+    }%
+  \end{beamercolorbox}%
+  \ifpresentationslidelogo
+    \begin{textblock*}{\presentationslidelogoblockwidth}(\dimexpr\paperwidth-\presentationslidelogoxshift\relax,\presentationslidelogoyshift)
+      \includegraphics[width=\presentationslidelogowidth,keepaspectratio]{\presentationslidelogo}
+    \end{textblock*}%
+  \fi
+  \vspace{0.62cm}%
+}
+\makeatother
+
+\newcommand{\templatefootlinebody}{%
+  \vbox{%
+  \hbox{\hspace{0.45cm}{\color{myblue}\rule{\dimexpr\paperwidth-0.9cm\relax}{0.35pt}}}%
+  \vskip0.55ex%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.28\paperwidth,ht=2.2ex,dp=0.75ex,leftskip=.45cm]{footline}%
+      \href{https://inspirehep.net/authors/2784995?ui-citation-summary=true}{\textcolor{myblue}{\presentationfootername}}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.44\paperwidth,ht=2.2ex,dp=0.75ex,center]{footline}%
+      \presentationfootertitle%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.28\paperwidth,ht=2.2ex,dp=0.75ex,right,rightskip=.45cm]{footline}%
+      \insertframenumber%
+    \end{beamercolorbox}%
+  }%
+  \vskip0.65ex%
+  }%
+}
+
+\setbeamertemplate{footline}{\templatefootlinebody}
+
+\newcommand{\blankfootline}{\setbeamertemplate{footline}{}}
+\newcommand{\normalfootline}{%
+  \setbeamertemplate{footline}{\templatefootlinebody}%
+}
+
+\makeatletter
+\patchcmd{\beamer@calculateheadfoot}
+  {\advance\footheight by 4pt}
+  {\advance\footheight by 13pt}
+  {}{}
+\makeatother
+
+% ---------------------------------------------------------------------------
+% Outline helpers
+
+\newcommand{\overviewtitle}{Outline}
+\newif\ifcurrentoutline
+\currentoutlinefalse
+\newif\ifallblueoutline
+\allblueoutlinefalse
+
+\setbeamerfont{section in toc}{size=\Large,series=\bfseries}
+\setbeamercolor{section in toc}{fg=myblue}
+\setbeamercolor{section in toc shaded}{fg=gray}
+\setbeamertemplate{section in toc}{%
+  \par\nointerlineskip\vspace{0.16cm}%
+  \hbox to 0.92\textwidth{%
+    \hskip0.07\textwidth%
+    \ifcurrentoutline%
+      {\color{myblue}$\Rightarrow$}%
+    \else\ifallblueoutline%
+      {\color{myblue}$\star$}%
+    \else%
+      {\color{gray}$\star$}%
+    \fi\fi%
+    \hspace{0.35cm}%
+    \ifcurrentoutline%
+      {\textcolor{myblue}{\textbf{\inserttocsection}}}%
+    \else\ifallblueoutline%
+      {\textcolor{myblue}{\textbf{\inserttocsection}}}%
+    \else%
+      {\textcolor{gray}{\textbf{\inserttocsection}}}%
+    \fi\fi%
+    \hfill%
+  }%
+  \par\vspace{0.16cm}%
+}
+\setbeamertemplate{section in toc shaded}{%
+  \par\nointerlineskip\vspace{0.16cm}%
+  \hbox to 0.92\textwidth{%
+    \hskip0.07\textwidth%
+    {\color{gray}$\star$}%
+    \hspace{0.35cm}%
+    {\textcolor{gray}{\textbf{\inserttocsection}}}%
+    \hfill%
+  }%
+  \par\vspace{0.16cm}%
+}
+
+\newcommand{\outlineframe}{%
+  \begin{frame}[plain,noframenumbering]{\overviewtitle}
+    \vfill
+    \allblueoutlinetrue
+    \currentoutlinefalse
+    {\hypersetup{hidelinks}\tableofcontents[hideallsubsections]}%
+    \allblueoutlinefalse
+    \vfill
+  \end{frame}
+}
+
+\AtBeginSection[]{%
+  \begin{frame}[plain,noframenumbering]{\overviewtitle}
+    \vfill
+    \allblueoutlinefalse
+    \currentoutlinetrue
+    {\hypersetup{hidelinks}\tableofcontents[currentsection,sectionstyle=show/shaded,hideallsubsections]}%
+    \currentoutlinefalse
+    \vfill
+  \end{frame}
+}
+
+% ---------------------------------------------------------------------------
+% Citations
+
+\DeclareCiteCommand{\templateshortcite}
+  {}
+  {%
+    \iffieldundef{doi}
+      {\iffieldundef{url}
+        {\printtext{%
+          \printnames{labelname}%
+          \setunit{\addspace}%
+          \printfield{year}%
+        }}
+        {\href{\thefield{url}}{\textcolor{mygreencite}{%
+          \printnames{labelname}%
+          \setunit{\addspace}%
+          \printfield{year}%
+        }}}}
+      {\href{https://doi.org/\thefield{doi}}{\textcolor{mygreencite}{%
+        \printnames{labelname}%
+        \setunit{\addspace}%
+        \printfield{year}%
+      }}}%
+  }
+  {\multicitedelim}
+  {}
+
+\newcommand{\templatecustomcitetext}{}
+\DeclareCiteCommand{\templatecustomcite}
+  {}
+  {%
+    \iffieldundef{doi}
+      {\iffieldundef{url}
+        {\printtext{\templatecustomcitetext}}
+        {\href{\thefield{url}}{\textcolor{mygreencite}{\templatecustomcitetext}}}}
+      {\href{https://doi.org/\thefield{doi}}{\textcolor{mygreencite}{\templatecustomcitetext}}}%
+  }
+  {\multicitedelim}
+  {}
+
+\DeclareCiteCommand{\templateplaincite}
+  {}
+  {%
+    \printtext{%
+      \printnames{labelname}%
+      \setunit{\addspace}%
+      \printfield{year}%
+    }%
+  }
+  {\multicitedelim}
+  {}
+
+\NewDocumentCommand{\paperref}{o m}{%
+  {\footnotesize\color{mygreencite}%
+    [\IfNoValueTF{#1}{\templateshortcite{#2}}{\renewcommand{\templatecustomcitetext}{#1}\templatecustomcite{#2}}]%
+  }%
+}
+
+% Explicit linked custom text. Useful when the entry has only url/doi fields.
+\NewDocumentCommand{\paperlink}{m m}{%
+  {\footnotesize\color{mygreencite}[\href{#2}{\textcolor{mygreencite}{#1}}]}%
+}
+
+% ---------------------------------------------------------------------------
+% Figures
+
+\NewDocumentCommand{\stuckimage}{O{width=.8\textwidth,angle=0} m}{%
+  \tikz[baseline=(img.base)]{%
+    \node[
+      inner sep=3pt,
+      fill=white,
+      draw=myblue!55!black,
+      line width=0.35pt,
+      blur shadow={shadow blur steps=5,shadow blur extra rounding=1pt,shadow xshift=1.2pt,shadow yshift=-1.2pt},
+      rotate=0
+    ] (img) {\includegraphics[#1]{#2}};
+  }%
+}
+
+\NewDocumentCommand{\framedimage}{O{width=.8\textwidth} m}{%
+  \fbox{\includegraphics[#1]{#2}}%
+}
+
+% ---------------------------------------------------------------------------
+% Backup helpers
+
+\newcommand{\backupsection}{%
+  \appendix%
+  \blankfootline%
+  \begin{frame}[plain,noframenumbering]
+    \centering
+    \vfill
+    {\Large\bfseries\color{myblue}Backup slides}
+    \vfill
+  \end{frame}
+}
+
+\newenvironment{backupframe}[2][]{%
+  \begin{frame}[plain,noframenumbering,#1]{#2}%
+}{\end{frame}}

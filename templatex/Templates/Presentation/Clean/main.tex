@@ -1,0 +1,106 @@
+\documentclass[10pt,aspectratio=43]{beamer}
+
+\input{config.tex}
+
+% ---------------------------------------------------------------------------
+% Presentation metadata and configuration choices from config.tex
+
+\title{Long presentation title}
+\subtitle{This is the subtitle}
+\author[Matteo Saccardi]{Matteo Saccardi}
+\date{The best conference ever\\ September 17th, 1997}
+
+\setfootername{Matteo Saccardi}
+\setfootertitle{Short presentation title}
+\setslidelogo{Plots/LOGO_CSU_long.png}
+\setslidelogowidth{1.85cm}
+\setslidelogoblockwidth{1.85cm}
+\setslidelogoposition{1.60cm}{0.08cm} % xshift, yshift w.r.t. right and upper margins
+\settitleextra{Based on a template by Matteo Saccardi}
+\settitlebackground{Plots/background.jpg}
+\settitlelogooptions{height=2.20cm,keepaspectratio}
+\settitlelogorowwidth{0.86\paperwidth}
+\settitlelogodistribution{center} % spread, center, left, or right
+\settitlelogolist{Plots/LOGO_CSU_long.png,Plots/LOGO_CSU.png}
+
+% Set to true/false to make selected text use the handwriting font.
+\sethandwriting{false}
+
+% ---------------------------------------------------------------------------
+
+\begin{document}
+
+\titlepageframe
+\outlineframe
+
+\section{Introduction}
+
+\begin{frame}{Quantum Chromodynamics}
+\framesubtitle{A compact example slide}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.52\textwidth}
+  \begin{itemize}
+    \item QCD describes the strong interaction.
+    \item Lattice QCD gives access to non-perturbative observables.
+    \item Spectral densities require controlling an inverse problem.
+  \end{itemize}
+
+  \vspace{0.25cm}
+  A citation can be inserted as \paperref{Bruno:2024fqc}, or with custom
+  text as \paperref[MS et al. 2024]{Bruno:2024fqc}.
+
+  \vspace{0.25cm}
+  \maybehandwriting{This sentence switches style when \texttt{\string\sethandwriting\{true\}} is used.}
+
+  \vspace{0.25cm}
+  \begin{Handwriting}
+    Handwritten note + equation
+    \begin{equation}
+      C(t) = \int_0^\infty d\omega\, e^{-\omega t}\rho(\omega).
+    \end{equation}
+  \end{Handwriting}
+
+  \column{0.42\textwidth}
+  \centering
+  \stuckimage[width=\linewidth,angle=1.2]{Plots/DUCK_1.png}
+\end{columns}
+
+\end{frame}
+
+\section{Methods}
+
+\begin{frame}{This is the title!}
+\framesubtitle{Title and subtitle live in the upper band}
+
+\begin{equation*}
+  C(t) = \int_0^\infty d\omega\, e^{-\omega t}\rho(\omega)
+\end{equation*}
+
+\begin{itemize}
+  \item The header follows the cleaner style from \texttt{config.tex}.
+  \item The footer keeps only author, short title, and current slide number.
+  \item Normal \texttt{\string\includegraphics} remains available.
+  \item Equations are automatically not numbered.
+\end{itemize}
+
+\end{frame}
+
+\section{Conclusions}
+
+\begin{frame}{Conclusions}
+\begin{itemize}
+  \item The template separates style from content.
+  \item Outline frames and backup frames are not numbered.
+  \item The regular slide logo is set from this file.
+\end{itemize}
+\end{frame}
+
+\backupsection
+
+\begin{backupframe}{Backup Example}
+\centering
+\stuckimage[width=.37\textwidth,angle=-1.0]{Plots/DUCK_2.png}
+\end{backupframe}
+
+\end{document}
