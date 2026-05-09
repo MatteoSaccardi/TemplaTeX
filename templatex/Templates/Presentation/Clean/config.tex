@@ -448,11 +448,25 @@
   {\multicitedelim}
   {}
 
+\ExplSyntaxOn
 \NewDocumentCommand{\paperref}{o m}{%
-  {\footnotesize\color{mygreencite}%
-    [\IfNoValueTF{#1}{\templateshortcite{#2}}{\renewcommand{\templatecustomcitetext}{#1}\templatecustomcite{#2}}]%
-  }%
+  \tl_if_blank:nTF {#2}
+    {%
+      \IfNoValueTF{#1}
+        {}% Case: \paperref{} -> print nothing
+        {{\footnotesize\color{mygreencite}[#1]}}% Case: \paperref[Simple text]{}
+    }%
+    {%
+      {\footnotesize\color{mygreencite}%
+        [%
+        \IfNoValueTF{#1}
+          {\templateshortcite{#2}}%
+          {\renewcommand{\templatecustomcitetext}{#1}\templatecustomcite{#2}}%
+        ]%
+      }%
+    }%
 }
+\ExplSyntaxOff
 
 % Explicit linked custom text. Useful when the entry has only url/doi fields.
 \NewDocumentCommand{\paperlink}{m m}{%
