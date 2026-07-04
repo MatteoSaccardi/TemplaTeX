@@ -358,7 +358,7 @@
   {%
   \ifpresentationtitlebackground
     \usebackgroundtemplate{%
-      \tikz\node[opacity=0.35,inner sep=0pt] at (0,0)
+      \tikz\node[opacity=0.15,inner sep=0pt] at (0,0)
         {\includegraphics[width=\paperwidth,height=\paperheight]{\presentationtitlebackground}};}%
   \fi
   \begin{frame}[plain,noframenumbering]
@@ -446,7 +446,8 @@
 \setbeamertemplate{section in toc}{%
   \par\nointerlineskip\vspace{0.16cm}%
   \hbox to 0.92\textwidth{%
-    \hskip0.07\textwidth%
+    % \hskip0.07\textwidth%
+    % \hspace*{-0.15cm}%
     \ifcurrentoutline%
       {\color{myblue}$\Rightarrow$}%
     \else\ifallblueoutline%
@@ -469,7 +470,8 @@
 \setbeamertemplate{section in toc shaded}{%
   \par\nointerlineskip\vspace{0.16cm}%
   \hbox to 0.92\textwidth{%
-    \hskip0.07\textwidth%
+    % \hskip0.07\textwidth%
+    % \hspace*{-0.15cm}%
     {\color{gray}$\star$}%
     \hspace{0.35cm}%
     {\textcolor{gray}{\textbf{\inserttocsection}}}%
@@ -570,6 +572,26 @@
       }%
     }%
 }
+
+\NewDocumentCommand{\paperrefs}{m}{%
+  {\footnotesize\color{mygreencite}[
+    \int_zero:N \l_tmpa_int
+    \clist_map_inline:nn {#1}
+      {
+        \int_incr:N \l_tmpa_int
+        \int_compare:nNnT {\l_tmpa_int} > {1} {,~}
+        \template_paperref_pair:nn ##1
+      }
+  ]}%
+}
+
+\cs_new_protected:Npn \template_paperref_pair:nn #1#2
+  {
+    \begingroup
+    \renewcommand{\templatecustomcitetext}{#1}%
+    \templatecustomcite{#2}%
+    \endgroup
+  }
 \ExplSyntaxOff
 
 % Explicit linked custom text. Useful when the entry has only url/doi fields.

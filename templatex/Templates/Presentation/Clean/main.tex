@@ -49,7 +49,25 @@
   \vspace{0.25cm}
   A citation can be inserted as \paperref{Bruno:2024fqc}, or with custom
   text as \paperref[MS et al. 2024]{Bruno:2024fqc}.
+  For multiple references, use \paperrefs{
+    {MS et al. 2024}{Bruno:2024fqc},
+    {MS et al. 2026}{Giusti:2026mcy}
+  }
+  and for references with multiple commas be careful to wrap them in brackets $\{ \{\text{text to show}\} \{\text{ref:2026}\}\}$ e.g.
+  \paperrefs{
+    {Bruno, Giusti, Saccardi 2024}{Bruno:2024fqc},
+    {Giusti, Saccardi, Toniolo 2026}{Giusti:2026mcy}
+  }
 
+  \column{0.42\textwidth}
+  \centering
+  \stuckimage[width=\linewidth,angle=1.2]{Plots/DUCK_1.png}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Quantum Chromodynamics}
+\framesubtitle{Another example slide}
   \vspace{0.25cm}
   \maybehandwriting{This sentence switches style when \texttt{\string\sethandwriting\{true\}} is used.}
 
@@ -61,10 +79,6 @@
     \end{equation}
   \end{Handwriting}
 
-  \column{0.42\textwidth}
-  \centering
-  \stuckimage[width=\linewidth,angle=1.2]{Plots/DUCK_1.png}
-\end{columns}
 
 \end{frame}
 
